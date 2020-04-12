@@ -12,17 +12,21 @@ class Dic2Dot(dict):
         return self[name]
 
 # Cell
-def read_asxml(path='./vasprun.xml'):
+def read_asxml(path=None):
+    if(path==None):
+        path='./vasprun.xml'
     import xml.etree.ElementTree as ET
     if(not path):
         print('vasprun.xml not found.')
     else:
         tree = ET.parse(path)
         xml_data = tree.getroot()
-        return Dic2Dot({'xml': xml_data})
+        return xml_data
 
 # Cell
-def exclude_kpts(xml_data=read_asxml().xml):
+def exclude_kpts(xml_data=None):
+    if(xml_data==None):
+        xml_data=read_asxml()
     for kpts in xml_data.iter('varray'):
         if(kpts.attrib=={'name': 'weights'}):
             weights=[float(arr.text.strip()) for arr in kpts.iter('v')]
@@ -32,13 +36,17 @@ def exclude_kpts(xml_data=read_asxml().xml):
     return Dic2Dot({'skipk':skipk})
 
 # Cell
-def get_ispin(xml_data=read_asxml().xml):
+def get_ispin(xml_data=None):
+    if(xml_data==None):
+        xml_data=read_asxml()
     for item in xml_data.iter('i'):
         if(item.attrib=={'type': 'int', 'name': 'ISPIN'}):
             return Dic2Dot({'ISPIN':int(item.text)})
 
 # Cell
-def get_summary(xml_data=read_asxml().xml):
+def get_summary(xml_data=None):
+    if(xml_data==None):
+        xml_data=read_asxml()
     for i_car in xml_data.iter('incar'):
         incar={car.attrib['name']:car.text.strip() for car in i_car}
     n_ions=[int(atom.text) for atom in xml_data.iter('atoms')][0]
@@ -55,7 +63,9 @@ def get_summary(xml_data=read_asxml().xml):
     return Dic2Dot(info_dic)
 
 # Cell
-def get_kpts(xml_data=read_asxml().xml,skipk=0):
+def get_kpts(xml_data=None,skipk=0):
+    if(xml_data==None):
+        xml_data=read_asxml()
     import numpy as np
     for kpts in xml_data.iter('varray'):
         if(kpts.attrib=={'name': 'kpointlist'}):
@@ -67,7 +77,9 @@ def get_kpts(xml_data=read_asxml().xml,skipk=0):
     return Dic2Dot({'NKPTS':len(kpoints),'kpoints':kpoints,'kpath':kpath})
 
 # Cell
-def get_tdos(xml_data=read_asxml().xml,spin_set=1,elim=[]):
+def get_tdos(xml_data=None,spin_set=1,elim=[]):
+    if(xml_data==None):
+        xml_data=read_asxml()
     import numpy as np #Mandatory to avoid errors.
     tdos=[]; #assign for safely exit if wrong spin set entered.
     ISPIN=get_ispin(xml_data=xml_data).ISPIN
@@ -108,7 +120,9 @@ def get_tdos(xml_data=read_asxml().xml,spin_set=1,elim=[]):
 
 
 # Cell
-def get_evals(xml_data=read_asxml().xml,skipk=None,elim=[]):
+def get_evals(xml_data=None,skipk=None,elim=[]):
+    if(xml_data==None):
+        xml_data=read_asxml()
     import numpy as np #Mandatory to avoid errors.
     evals=[]; #assign for safely exit if wrong spin set entered.
     ISPIN=get_ispin(xml_data=xml_data).ISPIN
@@ -148,8 +162,9 @@ def get_evals(xml_data=read_asxml().xml,skipk=None,elim=[]):
     return evals_dic
 
 # Cell
-def get_bands_pro_set(xml_data=read_asxml().xml,spin_set=1,skipk=0,bands_range=None):
-
+def get_bands_pro_set(xml_data=None,spin_set=1,skipk=0,bands_range=None):
+    if(xml_data==None):
+        xml_data=read_asxml()
     import numpy as np
     #Collect Projection fields
     fields=[];
@@ -183,8 +198,9 @@ def get_bands_pro_set(xml_data=read_asxml().xml,spin_set=1,skipk=0,bands_range=N
     return Dic2Dot({'labels':fields,'pros':final_data})
 
 # Cell
-def get_dos_pro_set(xml_data=read_asxml().xml,spin_set=1,dos_range=None):
-
+def get_dos_pro_set(xml_data=None,spin_set=1,dos_range=None):
+    if(xml_data==None):
+        xml_data=read_asxml()
     import numpy as np
     type_ion=get_summary(xml_data=xml_data).TypeION
     for pro in xml_data.iter('partial'):
@@ -209,7 +225,9 @@ def get_dos_pro_set(xml_data=read_asxml().xml,spin_set=1,dos_range=None):
     return Dic2Dot({'labels':dos_fields,'pros':final_data})
 
 # Cell
-def get_structure(xml_data=read_asxml().xml):
+def get_structure(xml_data=None):
+    if(xml_data==None):
+        xml_data=read_asxml()
     import numpy as np
     for final in xml_data.iter('structure'):
         if(final.attrib=={'name': 'finalpos'}):
@@ -226,7 +244,7 @@ def get_structure(xml_data=read_asxml().xml):
     return Dic2Dot(st_dic)
 
 # Cell
-def export_vasprun(xml_data=read_asxml().xml,skipk=None,elim=[]):
+def export_vasprun(xml_data=None,skipk=None,elim=[]):
     """
     Iput: read_asxml().xml object.
     Output: A dictionary accessible via dot notation containing objects:
@@ -238,6 +256,8 @@ def export_vasprun(xml_data=read_asxml().xml,skipk=None,elim=[]):
         incar: INCAR file as dictionary accessible via dot notation.
         xml: xml root object which is iterable over nodes using xml.iter('node').
     """
+    if(xml_data==None):
+        xml_data=read_asxml()
     import numpy as np
     #First exclude unnecessary kpoints. Includes only same weight points
     if skipk!=None:

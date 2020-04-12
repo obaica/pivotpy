@@ -12,7 +12,8 @@ This file will become your README and also the index of your documentation.
 
 ```python
 from VainPy import vr_parser as vp
-vr=vp.export_vasprun()
+xml_data=vp.read_asxml(path='../vasprun.xml')
+vr=vp.export_vasprun(xml_data=xml_data)
 ```
 
 ```python
@@ -25,10 +26,6 @@ vr.keys()
     dict_keys(['sys_info', 'dim_info', 'kpoints', 'kpath', 'bands', 'tdos', 'pro_bands', 'pro_dos', 'poscar', 'xml'])
 
 
-
-```python
-xml_data=vp.read_asxml(path='./vasprun.xml').xml
-```
 
 ```python
 vp.exclude_kpts(xml_data=xml_data)
@@ -62,15 +59,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 en=vr.tdos.tdos[:,0]
 dos=vr.tdos.tdos[:,1]
-plt.plot(en,dos)
+dplot=plt.plot(en,dos)
 ```
-
-
-
-
-    [<matplotlib.lines.Line2D at 0x1f467864108>]
-
-
 
 ```python
 k=vr.kpath
@@ -78,7 +68,3 @@ ef=vr.bands.E_Fermi
 evals=vr.bands.evals-ef
 plot=plt.plot(k,evals,'b')
 ```
-
-
-![png](docs/images/output_10_0.png)
-
