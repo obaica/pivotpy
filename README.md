@@ -62,6 +62,10 @@ dos=vr.tdos.tdos[:,1]
 dplot=plt.plot(en,dos)
 ```
 
+
+![png](docs/images/output_8_0.png)
+
+
 ```python
 k=vr.kpath
 ef=vr.bands.E_Fermi
