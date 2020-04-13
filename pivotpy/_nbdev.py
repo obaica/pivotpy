@@ -16,7 +16,7 @@ index = {"interpolate_data": "Utilities.ipynb",
          "get_structure": "XmlElementTree.ipynb",
          "export_vasprun": "XmlElementTree.ipynb"}
 
-modules = ["utils.py",
+modules = ["g_utils.py",
            "vr_parser.py"]
 
 doc_url = "https://asaboor.github.io/pivotpy/"
