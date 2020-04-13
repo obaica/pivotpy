@@ -10,12 +10,12 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: module name here
-      url: /core
+      title: pivotpy
+      url: /Utilities
     - output: web,pdf
       title: Title
       url: /XmlElementTree
     output: web
-    title: VainPy
+    title: pivotpy
   output: web
   title: Sidebar

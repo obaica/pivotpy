@@ -2,7 +2,8 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"Dic2Dot": "XmlElementTree.ipynb",
+index = {"interpolate_data": "Utilities.ipynb",
+         "Dic2Dot": "XmlElementTree.ipynb",
          "read_asxml": "XmlElementTree.ipynb",
          "exclude_kpts": "XmlElementTree.ipynb",
          "get_ispin": "XmlElementTree.ipynb",
@@ -15,10 +16,11 @@ index = {"Dic2Dot": "XmlElementTree.ipynb",
          "get_structure": "XmlElementTree.ipynb",
          "export_vasprun": "XmlElementTree.ipynb"}
 
-modules = ["vr_parser.py"]
+modules = ["utils.py",
+           "vr_parser.py"]
 
-doc_url = "https://asaboor.github.io/VainPy/"
+doc_url = "https://asaboor.github.io/pivotpy/"
 
-git_url = "https://github.com/asaboor/VainPy/tree/master/"
+git_url = "https://github.com/asaboor/pivotpy/tree/master/"
 
 def custom_doc_links(name): return None

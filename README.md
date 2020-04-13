@@ -1,19 +1,19 @@
-# VainPy
-> VainPy refers to Vasp analysis in numerical Python as it is based on numpy, alogwith xml ElementTree package in python.
+# pivotpy
+> Python Processing Tool for Vasp Input/Output.
 
 
 This file will become your README and also the index of your documentation.
 
 ## Install
 
-`pip install VainPy`
+`pip install pivotpy`
 
 ## How to use
 
 ```python
-from VainPy import vr_parser as vp
-xml_data=vp.read_asxml(path='../vasprun.xml')
-vr=vp.export_vasprun(xml_data=xml_data)
+from pivotpy import vr_parser as pp
+xml_data=pp.read_asxml(path='../vasprun.xml')
+vr=pp.export_vasprun(xml_data=xml_data)
 ```
 
 ```python
@@ -28,7 +28,7 @@ vr.keys()
 
 
 ```python
-vp.exclude_kpts(xml_data=xml_data)
+pp.exclude_kpts(xml_data=xml_data)
 ```
 
 
@@ -39,7 +39,7 @@ vp.exclude_kpts(xml_data=xml_data)
 
 
 ```python
-vp.get_summary(xml_data=xml_data)
+pp.get_summary(xml_data=xml_data)
 ```
 
 
@@ -61,10 +61,6 @@ en=vr.tdos.tdos[:,0]
 dos=vr.tdos.tdos[:,1]
 dplot=plt.plot(en,dos)
 ```
-
-
-![png](docs/images/output_8_0.png)
-
 
 ```python
 k=vr.kpath

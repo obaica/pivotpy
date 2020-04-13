@@ -1,7 +1,7 @@
 {
-  "VainPy": {
+  "pivotpy": {
     "Overview": "/",
-    "module name here": "/core",
+    "pivotpy": "/Utilities",
     "Title": "/XmlElementTree"
   }
 }
