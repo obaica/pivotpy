@@ -10,13 +10,13 @@ This file will become your README and also the index of your documentation.
 
 ## How to use
 
-```python
+```
 from pivotpy import vr_parser as pp
 xml_data=pp.read_asxml(path='../vasprun.xml')
 vr=pp.export_vasprun(xml_data=xml_data)
 ```
 
-```python
+```
 vr.keys()
 ```
 
@@ -27,7 +27,7 @@ vr.keys()
 
 
 
-```python
+```
 pp.exclude_kpts(xml_data=xml_data)
 ```
 
@@ -38,7 +38,7 @@ pp.exclude_kpts(xml_data=xml_data)
 
 
 
-```python
+```
 pp.get_summary(xml_data=xml_data)
 ```
 
@@ -54,7 +54,7 @@ pp.get_summary(xml_data=xml_data)
 
 
 
-```python
+```
 import matplotlib.pyplot as plt
 import numpy as np
 en=vr.tdos.tdos[:,0]
@@ -66,7 +66,7 @@ dplot=plt.plot(en,dos)
 ![png](docs/images/output_8_0.png)
 
 
-```python
+```
 k=vr.kpath
 ef=vr.bands.E_Fermi
 evals=vr.bands.evals-ef
