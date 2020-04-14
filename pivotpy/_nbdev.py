@@ -3,6 +3,8 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"interpolate_data": "Utilities.ipynb",
+         "ps_to_py": "Utilities.ipynb",
+         "ps_to_std": "Utilities.ipynb",
          "Dic2Dot": "XmlElementTree.ipynb",
          "read_asxml": "XmlElementTree.ipynb",
          "exclude_kpts": "XmlElementTree.ipynb",

@@ -66,6 +66,157 @@ Knew,Enew= interpolate_data(K,E,n=10,k=3) #cubic interploation</p>
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="ps_to_py" class="doc_header"><code>ps_to_py</code><a href="https://github.com/massgh/pivotpy/tree/master/pivotpy/g_utils.py#L28" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ps_to_py</code>(<strong><code>path_to_ps</code></strong>=<em><code>'powershell.exe'</code></em>, <strong><code>exec_type</code></strong>=<em><code>'-Command'</code></em>, <strong><code>ps_command</code></strong>=<em><code>'Get-ChildItem'</code></em>)</p>
+</blockquote>
+<p>Captures powershell output in python.
+Parameters:
+        path_to_ps: path to powerhell.exe if not added to PATH variables.
+        exec_type: type of execution, default '-Command', could be '-File'.
+        ps_command: enclose ps_command in ' ' or " ".</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="ps_to_std" class="doc_header"><code>ps_to_std</code><a href="https://github.com/massgh/pivotpy/tree/master/pivotpy/g_utils.py#L52" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ps_to_std</code>(<strong><code>path_to_ps</code></strong>=<em><code>'powershell.exe'</code></em>, <strong><code>exec_type</code></strong>=<em><code>'-Command'</code></em>, <strong><code>ps_command</code></strong>=<em><code>'Get-ChildItem'</code></em>)</p>
+</blockquote>
+<p>Prints powershell output in python std.
+Parameters:
+        path_to_ps: path to powerhell.exe if not added to PATH variables.
+        exec_type: type of execution, default '-Command', could be '-File'.
+        ps_command: enclose ps_command in ' ' or " ".</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Usage-Examples">Usage Examples<a class="anchor-link" href="#Usage-Examples"> </a></h2><p><code>ps_to_std()</code> only outputs returns of powershell to python std.
+<code>ps_to_py()</code>'s return could be manipulated in python.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ps_to_std</span><span class="p">(</span><span class="n">ps_command</span><span class="o">=</span><span class="s1">&#39;(Get-Process)[0..4]&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
+-------  ------    -----      -----     ------     --  -- -----------
+560      49    39564      75824      17.38  16184   1 AltC
+271      17     6072      24920       1.67   6776   1 ApplicationFrameHost
+147       9     1432       5860              5320   0 armsvc
+416      22   300176      39328       7.36   3556   0 audiodg
+331      17     4656       6532       2.19  14560   1 CastSrv
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pp</span><span class="o">=</span><span class="n">ps_to_py</span><span class="p">(</span><span class="n">ps_command</span><span class="o">=</span><span class="s1">&#39;(Get-Process)[0..4]&#39;</span><span class="p">)</span>
+<span class="n">pp</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;563      49    39492      75792      17.39  16184   1 AltC&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 </div>
  
 
