@@ -21,6 +21,6 @@ modules = ["g_utils.py",
 
 doc_url = "https://massgh.github.io/pivotpy/https://massgh.github.io/pivotpy/"
 
-git_url = "https://github.com/massgh/pivotpy"
+git_url = "https://github.com/massgh/pivotpy/tree/master/"
 
 def custom_doc_links(name): return None
