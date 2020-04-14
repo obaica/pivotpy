@@ -118,6 +118,7 @@ def get_tdos(xml_data=None,spin_set=1,elim=[]):
         dos_dic=Dic2Dot({'E_Fermi':efermi,'ISPIN':ISPIN,'grid_range':range(lo_ind,up_ind),'dos':tdos})
     return dos_dic
 
+
 # Cell
 def get_evals(xml_data=None,skipk=None,elim=[]):
     if(xml_data==None):

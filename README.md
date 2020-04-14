@@ -10,7 +10,7 @@ This file will become your README and also the index of your documentation.
 
 ## How to use
 
-```
+```python
 from pivotpy import vr_parser as vp
 xml_data=vp.read_asxml(path='../vasprun.xml')
 vr=vp.export_vasprun(xml_data=xml_data,elim=[-5,5])
@@ -24,7 +24,7 @@ vr.keys()
 
 
 
-```
+```python
 print(vp.exclude_kpts(xml_data=xml_data).skipk)
 vp.get_summary(xml_data=xml_data)
 ```
@@ -44,7 +44,7 @@ vp.get_summary(xml_data=xml_data)
 
 
 
-```
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 en=vr.tdos.dos[:,0]
@@ -56,7 +56,7 @@ dplot=plt.plot(en,dos)
 ![png](docs/images/output_6_0.png)
 
 
-```
+```python
 from pivotpy import g_utils as gu
 k=vr.kpath
 ef=vr.bands.E_Fermi
@@ -74,7 +74,7 @@ plot=plt.plot(k,evals,'w',lw=1,label='interpolated',ls='dashed')
 ### Running powershell commands from python.
 Some tasks are very tideious in python while just a click way in powershell. See below, and try to list processes in python yourself to see the difference!
 
-```
+```python
 gu.ps_to_std(ps_command='(Get-Process)[0..4]')
 ```
 
