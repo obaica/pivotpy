@@ -57,5 +57,5 @@ defaults:
 
 sidebars: [home_sidebar]
 permalink: pretty
-baseurl: 
+baseurl: https://massgh.github.io/pivotpy
 #theme: jekyll-theme-cayman
