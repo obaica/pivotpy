@@ -19,7 +19,7 @@ index = {"interpolate_data": "Utilities.ipynb",
 modules = ["g_utils.py",
            "vr_parser.py"]
 
-doc_url = "https://massgh.github.io/pivotpy/https://massgh.github.io/pivotpy"
+doc_url = "https://massgh.github.io/pivotpy/https://massgh.github.io/pivotpy/"
 
 git_url = "https://github.com/massgh/pivotpy"
 
