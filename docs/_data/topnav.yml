@@ -2,7 +2,7 @@ topnav:
 - title: Topnav
   items:
     - title: GitHub
-      external_url: https://github.com/asaboor/pivotpy
+      external_url: https://github.com/massgh/pivotpy
 
 #Topnav dropdowns
 topnav_dropdowns:
